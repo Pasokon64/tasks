@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import api from '../../services/api';
+import { authenticate } from '../../services/auth';
 
 function Login () {
 
@@ -22,11 +23,13 @@ function Login () {
         if (response) {
             
             localStorage.setItem('token', response.data.token);
+            await authenticate();
             setRedirect(true);
         }
     }
 
     if (redirect) {
+        console.log('redirecting')
         return <Redirect to="/"/>
     }
 

@@ -9,6 +9,7 @@ const routes = Router();
 routes.get('/api/user/', userController.index);
 routes.post('/api/user/auth', userController.auth);
 routes.post('/api/user/register', userController.register);
+routes.post('/api/user/validate', auth, userController.validate);
 
 routes.get('/api/task', auth, taskController.index);
 routes.post('/api/task/create', auth, taskController.create);

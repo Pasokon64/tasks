@@ -35,6 +35,15 @@ module.exports = {
         });
     },
 
+    async validate(req, res) {
+        const user = await User.findById(req.userId);
+
+        if (!user)
+            return res.status(403).send({ error: 'User not found' });
+        
+        res.send(user);
+    },
+
     async register(req, res) {
         const { email } = req.body;
 
