@@ -33,19 +33,6 @@
     margin-bottom: 5px;
 }
 
-#App .task {
-    background-color: #fff;
-    width: 250px;
-    padding: 5px;
-    border-bottom: #ddd solid 2px;
-}
-
-#App .task span {
-    width: 93%;
-    display: inline-block;
-    word-wrap: break-word;
-}
-
 #App input[type="text"] {
     border: none;
     padding: 10px 8px;

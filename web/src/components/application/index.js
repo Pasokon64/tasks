@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import Task from '../task';
+
 import '../../global.css';
 import './style.css';
 
@@ -59,19 +61,13 @@ function Application () {
             </div>
         </aside>
         <main>
-            {/* <div className="list">
-                <h3 className="title">Tasks</h3>
-                {tasks.map(task => (
-                <div key="" className="task"><span>{task}</span><input type="checkbox"/></div>
-                ))}
-            </div> */}
             {
                 lists.map(list => (
                     <div className="list">
                         <h3 className="title">{list}</h3>
                         {
                             tasks.map(task => (
-                                <div key="" className="task"><span>{task}</span><input type="checkbox"/></div>
+                                <Task title={task}/>
                             ))
                         }
                         <NewTaskInput onSubmit={onAddTask}/>

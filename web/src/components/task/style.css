@@ -1,0 +1,12 @@
+.task {
+    background-color: #fff;
+    width: 250px;
+    padding: 5px;
+    border-bottom: #ddd solid 2px;
+}
+
+.task span {
+    width: 93%;
+    display: inline-block;
+    word-wrap: break-word;
+}
