@@ -29,10 +29,6 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-#App .list .title {
-    margin-bottom: 5px;
-}
-
 #App input[type="text"] {
     border: none;
     padding: 10px 8px;

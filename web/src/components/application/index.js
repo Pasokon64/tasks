@@ -1,49 +1,16 @@
 import React, { useState } from 'react';
-
-import Task from '../task';
+import List from '../list';
 
 import '../../global.css';
 import './style.css';
 
-function NewTaskInput({ onSubmit }) {
-
-    const [taskInput, setTaskInput] = useState('');
-    const [newTaskState, setNewTaskState] = useState(false);
-
-    function addTask() {
-        onSubmit(taskInput);
-    }
-
-    if (newTaskState) {
-        return (
-            <div>
-                <input onChange={e => setTaskInput(e.target.value)} value={taskInput} type="text"/>
-                <button onClick={addTask}>add</button>
-                <button onClick={() => setNewTaskState(false)}>cancel</button>
-            </div>
-        )
-    }
-    else {
-        return (
-            <button onClick={() => setNewTaskState(true)}>New task</button>
-        )
-    } 
-}
-
 function Application () {
-    const [tasks, setTasks] = useState([]);
     const [lists, setLists] = useState([]);
-
     const [listInput, setListInput] = useState('');
 
     function addList() {
         if (listInput.trim().length > 0)
             setLists([...lists, listInput]);
-    }
-
-    function onAddTask(taskInput) {
-        if (taskInput.trim().length > 0)
-            setTasks([...tasks, taskInput]);
     }
 
     return (
@@ -63,15 +30,7 @@ function Application () {
         <main>
             {
                 lists.map(list => (
-                    <div className="list">
-                        <h3 className="title">{list}</h3>
-                        {
-                            tasks.map(task => (
-                                <Task title={task}/>
-                            ))
-                        }
-                        <NewTaskInput onSubmit={onAddTask}/>
-                    </div>
+                    <List title={list}/>
                 ))
             }
         </main>
