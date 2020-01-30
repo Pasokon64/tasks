@@ -28,24 +28,3 @@
     gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
 }
-
-#App input[type="text"] {
-    border: none;
-    padding: 10px 8px;
-    background-color: #eee;
-    font-size: 14px;
-}
-
-#App button {
-    border: none;
-    border-radius: 2px;
-    padding: 10px;
-    color: #fff;
-    background-color: #2962FF;
-    min-width: 64px;
-    cursor: pointer;
-}
-
-#App button:hover {
-    background-color: #1a54f1;
-}

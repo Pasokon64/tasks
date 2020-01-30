@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import List from '../list';
+import ListForm from '../list-form';
 
 import '../../global.css';
 import './style.css';
 
 function Application () {
     const [lists, setLists] = useState([]);
-    const [listInput, setListInput] = useState('');
 
-    function addList() {
-        if (listInput.trim().length > 0)
-            setLists([...lists, listInput]);
+    function addList(title) {
+        setLists([...lists, title]);
     }
 
     return (
@@ -20,12 +19,7 @@ function Application () {
                 <h3>Nome do usuário</h3>
                 <p>Email do usuário</p>
             </div>
-            <div id="newList">
-                <h2>New List</h2>
-                <label>Name</label><br></br>
-                <input onChange={e => setListInput(e.target.value)} value={listInput} type="text"/>
-                <button onClick={addList}>Add</button>
-            </div>
+            <ListForm onSubmit={addList}/>
         </aside>
         <main>
             {
