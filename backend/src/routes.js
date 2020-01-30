@@ -3,6 +3,7 @@ const auth = require('./middlewares/auth');
 
 const userController = require('./controllers/UserController');
 const taskController = require('./controllers/TaskController');
+const listController = require('./controllers/ListController');
 
 const routes = Router();
 
@@ -13,5 +14,9 @@ routes.post('/api/user/validate', auth, userController.validate);
 
 routes.get('/api/task', auth, taskController.index);
 routes.post('/api/task/create', auth, taskController.create);
+routes.delete('/api/task/delete/:id', auth, taskController.delete);
+
+routes.get('/api/list', auth, listController.index);
+routes.post('/api/list/create', auth, listController.create);
 
 module.exports = routes;

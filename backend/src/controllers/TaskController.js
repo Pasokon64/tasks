@@ -15,14 +15,26 @@ module.exports = {
     },
 
     async create(req, res) {
-        const { title } = req.body;
+        const { title, list } = req.body;
 
         try{
-            const task = await Task.create({ title, user: req.userId });
+            const task = await Task.create({ title, list, user: req.userId });
             res.send({task});
         }
         catch (err) {
             return res.status(400).send({ error: 'Error creating task' });
+        }
+    },
+
+    async delete(req, res) {
+        //TODO: check if user is owner of task
+        try {
+            const task = await Task.findByIdAndDelete(req.params.id);
+
+            res.send(task);
+        } 
+        catch (err) {
+            return res.status(400).send({ error: 'Error deleting task' });
         }
     }
 }
