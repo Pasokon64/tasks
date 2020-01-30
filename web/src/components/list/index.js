@@ -1,32 +1,8 @@
 import React, { useState } from 'react';
+import ListInput from '../list-input';
 import Task from '../task';
 
 import './style.css';
-
-function NewTaskInput({ onSubmit }) {
-
-    const [taskInput, setTaskInput] = useState('');
-    const [newTaskState, setNewTaskState] = useState(false);
-
-    function addTask() {
-        onSubmit(taskInput);
-    }
-
-    if (newTaskState) {
-        return (
-            <div>
-                <input onChange={e => setTaskInput(e.target.value)} value={taskInput} type="text"/>
-                <button onClick={addTask}>add</button>
-                <button onClick={() => setNewTaskState(false)}>cancel</button>
-            </div>
-        )
-    }
-    else {
-        return (
-            <button onClick={() => setNewTaskState(true)}>New task</button>
-        )
-    } 
-}
 
 function List({ title }) {
     const [tasks, setTasks] = useState([]);
@@ -44,7 +20,7 @@ function List({ title }) {
                     <Task title={task}/>
                 ))
             }
-            <NewTaskInput onSubmit={onAddTask}/>
+            <ListInput onSubmit={onAddTask}/>
         </div>
     );
 }
