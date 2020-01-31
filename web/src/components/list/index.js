@@ -8,8 +8,7 @@ function List({ title }) {
     const [tasks, setTasks] = useState([]);
 
     function onAddTask(taskInput) {
-        if (taskInput.trim().length > 0)
-            setTasks([...tasks, taskInput]);
+        setTasks([...tasks, taskInput]);
     }
 
     return (
