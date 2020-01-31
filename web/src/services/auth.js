@@ -1,6 +1,7 @@
 import api from './api';
 
 let isAuthenticated = false;
+let user = {};
 
 async function authenticate() {
     
@@ -14,6 +15,7 @@ async function authenticate() {
     })
     .then(response => {
         isAuthenticated = true;
+        user = response.data;
     })
     .catch(err => {
         console.log(err.response.data.error);
@@ -21,4 +23,9 @@ async function authenticate() {
     });
 }
 
-export { isAuthenticated, authenticate };
+function disconnect() {
+    localStorage.setItem('token', '');
+    isAuthenticated = false;
+}
+
+export { isAuthenticated, authenticate, disconnect, user };

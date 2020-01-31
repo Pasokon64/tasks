@@ -20,6 +20,12 @@
     margin-left: 10px;
 }
 
+.profile .user-info p {
+    font-size: 14px;
+    width: 250px;
+    overflow: hidden;
+}
+
 #App .profile .user-options {
     margin-top: 10px;
 }

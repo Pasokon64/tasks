@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { MdSettings, MdExitToApp } from 'react-icons/md';
+
+import { user, disconnect } from '../../services/auth';
 
 import './style.css';
 
@@ -13,20 +16,29 @@ function Icon({ IconName }) {
 }
 
 function Profile() {
+    const [logout, setLogout] = useState(false);
+
+    function userLogout() {
+        setLogout(true);
+        disconnect();
+    }
+
+    if (logout)
+        return <Redirect to="/login"/>    
+
     return (
         <div className="profile">
             <div className="user-info">
-                <img src={"https://avatars3.githubusercontent.com/u/40151593?v=4"} />
                 <div>
-                    <h3>Nome do usuário</h3>
-                    <p>Email do usuário</p>
+                    <h3>{user.name}</h3>
+                    <p>{user.email}</p>
                 </div>
             </div>
             <div className="user-options">
                 <button>
                     <Icon IconName={MdSettings}/>
                 </button>
-                <button>
+                <button onClick={userLogout}>
                     <Icon IconName={MdExitToApp}/>
                 </button>
             </div>
