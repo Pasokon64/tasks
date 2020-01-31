@@ -32,7 +32,7 @@ function ListInput({ onSubmit }) {
     else {
         return (
             <div class="task-form button-div">
-                <button onClick={() => setNewTaskState(true)}>New task</button>
+                <button onClick={() => setNewTaskState(true)}>new task</button>
             </div>
         )
     } 

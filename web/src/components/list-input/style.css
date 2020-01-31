@@ -20,6 +20,7 @@
     background-color: #2962FF;
     min-width: 64px;
     cursor: pointer;
+    font-size: 15px;
     margin-right: 4px;
 }
 
@@ -31,7 +32,6 @@
     background-color: transparent;
     color: #D50000;
     font-weight: bold;
-    font-size: 15px;
 }
 
 .task-form .cancel:hover {

@@ -1,0 +1,38 @@
+#App aside .profile {
+    background-color: #fff;
+    padding: 30px 20px 15px 20px;
+    margin-bottom: 30px;
+    width: 300px;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
+}
+
+#App .profile img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+#App .profile .user-info {
+    display: flex;
+}
+
+.profile .user-info div {
+    margin-left: 10px;
+}
+
+#App .profile .user-options {
+    margin-top: 10px;
+}
+
+.profile .user-options button {
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.profile .user-options button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}

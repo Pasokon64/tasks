@@ -16,7 +16,7 @@ function ListForm({ onSubmit }) {
             <h2>New List</h2>
             <label>Name</label><br></br>
             <input onChange={e => setTitle(e.target.value)} value={title} type="text"/>
-            <button>Add</button>
+            <button>add</button>
         </form>
     );
 }

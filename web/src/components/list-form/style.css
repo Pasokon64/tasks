@@ -21,6 +21,7 @@
     background-color: #2962FF;
     min-width: 64px;
     cursor: pointer;
+    font-size: 15px;
 }
 
 #newList button:hover {

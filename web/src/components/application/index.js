@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import List from '../list';
 import ListForm from '../list-form';
+import Profile from '../profile';
 
 import '../../global.css';
 import './style.css';
@@ -15,10 +16,7 @@ function Application () {
     return (
         <div id="App">
         <aside>
-            <div>
-                <h3>Nome do usuário</h3>
-                <p>Email do usuário</p>
-            </div>
+            <Profile/>
             <ListForm onSubmit={addList}/>
         </aside>
         <main>
