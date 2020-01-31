@@ -9,6 +9,8 @@ function ListForm({ onSubmit }) {
 
         if (title.trim().length > 0)
             onSubmit(title);
+
+        setTitle('');
     }
 
     return (
