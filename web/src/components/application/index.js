@@ -53,7 +53,7 @@ function Application () {
         <main>
             {
                 lists.map(list => (
-                    <List key={list._id} title={list.title}/>
+                    <List key={list._id} list={list}/>
                 ))
             }
         </main>

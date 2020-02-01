@@ -13,6 +13,7 @@ routes.post('/api/user/register', userController.register);
 routes.post('/api/user/validate', auth, userController.validate);
 
 routes.get('/api/task', auth, taskController.index);
+routes.get('/api/task/:list', auth, taskController.listTasks);
 routes.post('/api/task/create', auth, taskController.create);
 routes.delete('/api/task/delete/:id', auth, taskController.delete);
 

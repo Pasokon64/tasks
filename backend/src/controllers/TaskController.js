@@ -7,10 +7,20 @@ module.exports = {
     async index(req, res) {
         try {
             const tasks = await Task.find({ user: req.userId });
-            res.send({tasks});
+            res.send(tasks);
         }
         catch (err) {
             return res.status(400).send({ error: 'Error getting tasks' });
+        }
+    },
+
+    async listTasks(req, res) {
+        try {
+            const tasks = await Task.find({ list: req.params.list });
+            res.send(tasks);    
+        } 
+        catch (err) {
+            return res.status(400).send({ error: 'Error getting tasks from list' });
         }
     },
 
@@ -19,7 +29,7 @@ module.exports = {
 
         try{
             const task = await Task.create({ title, list, user: req.userId });
-            res.send({task});
+            res.send(task);
         }
         catch (err) {
             return res.status(400).send({ error: 'Error creating task' });
