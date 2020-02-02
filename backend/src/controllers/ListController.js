@@ -1,4 +1,5 @@
 const List = require('../models/List');
+const Task = require('../models/Task');
 
 module.exports = {
 
@@ -42,7 +43,8 @@ module.exports = {
         //TODO: check if user is owner of task
         try {
             const list = await List.findByIdAndRemove(req.params.id);
-
+            await Task.remove({ list: list._id });
+            
             res.send(list);
         } 
         catch (err) {
