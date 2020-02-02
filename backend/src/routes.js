@@ -15,9 +15,12 @@ routes.post('/api/user/validate', auth, userController.validate);
 routes.get('/api/task', auth, taskController.index);
 routes.get('/api/task/:list', auth, taskController.listTasks);
 routes.post('/api/task/create', auth, taskController.create);
+routes.put('/api/task/update/:id', auth, taskController.update);
 routes.delete('/api/task/delete/:id', auth, taskController.delete);
 
 routes.get('/api/list', auth, listController.index);
 routes.post('/api/list/create', auth, listController.create);
+routes.put('/api/list/update/:id', auth, listController.update);
+routes.delete('/api/list/delete/:id', auth, listController.delete);
 
 module.exports = routes;

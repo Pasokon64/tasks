@@ -36,6 +36,27 @@ module.exports = {
         }
     },
 
+    async update(req, res) {
+        //TODO: check if user is owner of task
+        const { title, completed } = req.body;
+
+        try {
+            const task = await Task.findById(req.params.id);
+
+            if (title)
+                task.title = title;
+            
+            if (completed != undefined)
+                task.completed = completed;
+
+            task.save();
+            res.send(task);
+        }
+        catch (err) {
+            res.status(400).send({ error: 'Error updating task' });
+        }
+    },
+
     async delete(req, res) {
         //TODO: check if user is owner of task
         try {

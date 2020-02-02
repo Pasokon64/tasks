@@ -22,5 +22,31 @@ module.exports = {
         catch (err) {
             return res.status(400).send({ error: 'Error creating list' });
         }
+    },
+
+    async update(req, res) {
+        //TODO: check if user is owner of task
+        const { title } = req.body;
+
+        try {
+            const list = await List.findByIdAndUpdate(req.params.id, { title }, { new: true });
+
+            res.send(list);
+        } 
+        catch (err) {
+            return res.status(400).send({ error: 'Error updating list' });    
+        }
+    },
+
+    async delete(req, res) {
+        //TODO: check if user is owner of task
+        try {
+            const list = await List.findByIdAndRemove(req.params.id);
+
+            res.send(list);
+        } 
+        catch (err) {
+            return res.status(400).send({ error: 'Error deleting list' });    
+        }
     }
 }
