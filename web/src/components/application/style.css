@@ -6,11 +6,11 @@
     margin: 0 auto;
 }
 
-#newTask *, #newList * {
+#newTask * {
     margin-bottom: 10px;
 }
 
-#newTask input, #newList input {
+#newTask input {
     width: 100%;
 }
 

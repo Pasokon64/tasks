@@ -14,11 +14,11 @@ function ListForm({ onSubmit }) {
     }
 
     return (
-        <form id="newList" onSubmit={e => addList(e)}>
+        <form className="form" onSubmit={e => addList(e)}>
             <h2>New List</h2>
             <label>Name</label><br></br>
             <input onChange={e => setTitle(e.target.value)} value={title} type="text"/>
-            <button>add</button>
+            <button className="primary-button">add</button>
         </form>
     );
 }

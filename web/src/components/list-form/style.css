@@ -1,4 +1,4 @@
-#newList {
+.form {
     background-color: #fff;
     padding: 30px 20px 15px 20px;
     margin-bottom: 30px;
@@ -6,14 +6,19 @@
     box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.2);
 }
 
-#newList input[type="text"] {
+.form > * {
+    margin-bottom: 10px;
+}
+
+.form input[type="text"] {
+    width: 100%;
     border: none;
     padding: 10px 8px;
     background-color: #eee;
     font-size: 14px;
 }
 
-#newList button {
+.form .primary-button {
     border: none;
     border-radius: 2px;
     padding: 10px;
@@ -24,6 +29,38 @@
     font-size: 15px;
 }
 
-#newList button:hover {
+.form .primary-button:hover {
     background-color: #1a54f1;
+}
+
+.form .danger-button {
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    color: #fff;
+    background-color: #EF5350;
+    min-width: 64px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.form .danger-button:hover {
+    background-color: #E53935;
+}
+
+.form .secondary-button {
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    color: #616161;
+    background-color: transparent;
+    min-width: 64px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    height: 40px;
+}
+
+.form .secondary-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }

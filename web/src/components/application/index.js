@@ -4,6 +4,7 @@ import api from '../../services/api';
 
 import List from '../list';
 import ListForm from '../list-form';
+import ListEditForm from '../list-edit-form';
 import Profile from '../profile';
 
 import '../../global.css';
@@ -56,6 +57,7 @@ function Application () {
         <aside>
             <Profile/>
             <ListForm onSubmit={handleAddList}/>
+            <ListEditForm/>
         </aside>
         <main>
             {
