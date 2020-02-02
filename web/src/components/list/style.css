@@ -2,6 +2,27 @@
     width: 250px;
 }
 
-.list h3 {
+.list .title {
     margin-bottom: 5px;
+    word-wrap: break-word;
+    max-width: 90%;
+}
+
+.list .title-bar {
+    padding: 5px;
+    position: relative;
+}
+
+.list .title-bar:hover > button {
+    display: block;
+}
+
+.list .title-bar button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 2px;
 }

@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { IconContext } from 'react-icons';
 import { MdSettings, MdExitToApp } from 'react-icons/md';
 
+import CustomIcon from '../custom-icon';
 import { user, disconnect } from '../../services/auth';
 
 import './style.css';
-
-function Icon({ IconName }) {
-    return (
-        <IconContext.Provider value={{ color: "#444", size: "2em", className: "global-class-name" }}>
-            <IconName/>
-        </IconContext.Provider>
-    );
-}
 
 function Profile() {
     const [logout, setLogout] = useState(false);
@@ -36,10 +28,10 @@ function Profile() {
             </div>
             <div className="user-options">
                 <button>
-                    <Icon IconName={MdSettings}/>
+                    <CustomIcon Icon={MdSettings}/>
                 </button>
                 <button onClick={userLogout}>
-                    <Icon IconName={MdExitToApp}/>
+                    <CustomIcon Icon={MdExitToApp}/>
                 </button>
             </div>
         </div>

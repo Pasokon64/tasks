@@ -28,7 +28,7 @@ function Application () {
         getLists();
     }, []);
 
-    async function addList(title) {
+    async function handleAddList(title) {
         const token = localStorage.getItem('token');
 
         const response = await api.post('/list/create', {
@@ -44,16 +44,23 @@ function Application () {
             setLists([...lists, response.data]);
     }
 
+    function handleDeleteList(list) {
+        const listsCopy = [...lists];
+        const filteredList = listsCopy.filter(item => item._id !== list._id);
+
+        setLists(filteredList);
+    }
+
     return (
         <div id="App">
         <aside>
             <Profile/>
-            <ListForm onSubmit={addList}/>
+            <ListForm onSubmit={handleAddList}/>
         </aside>
         <main>
             {
                 lists.map(list => (
-                    <List key={list._id} list={list}/>
+                    <List key={list._id} list={list} onDelete={handleDeleteList}/>
                 ))
             }
         </main>
