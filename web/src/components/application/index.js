@@ -5,6 +5,7 @@ import api from '../../services/api';
 import List from '../list';
 import ListForm from '../list-form';
 import ListEditForm from '../list-edit-form';
+import TaskEditForm from '../task-edit-form';
 import Profile from '../profile';
 
 import '../../global.css';
@@ -58,6 +59,7 @@ function Application () {
             <Profile/>
             <ListForm onSubmit={handleAddList}/>
             <ListEditForm/>
+            <TaskEditForm/>
         </aside>
         <main>
             {

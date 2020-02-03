@@ -2,13 +2,17 @@ import React from 'react';
 
 import './style.css';
 
-function ListEditForm() {
+function TaskEditForm () {
 
     return (
         <form className="form">
-            <h2>List</h2>
+            <h2>Task</h2>
             <label>Name</label><br></br>
             <input type="text"/>
+            <div className="checkbox-container">
+                <label>completed</label>
+                <input type="checkbox"/>
+            </div>
             <div className="button-group">
                 <div className="group-1">
                     <button className="primary-button">save</button>
@@ -20,4 +24,4 @@ function ListEditForm() {
     );
 }
 
-export default ListEditForm;
+export default TaskEditForm;
