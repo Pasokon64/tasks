@@ -13,7 +13,7 @@ import './style.css';
 
 function Application () {
     const [lists, setLists] = useState([]);
-    const [formState, setFormState] = useState({ form: 'newList' });
+    const [formState, setFormState] = useState({ form: 'editList' });
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -54,14 +54,18 @@ function Application () {
         setLists(filteredList);
     }
 
+    function handleCancelForm() {
+        setFormState({ form: <ListForm/> });
+    }
+
     function Form() {
         switch (formState.form) {
             case 'newList':
                 return <ListForm onSubmit={handleAddList}/>
             case 'editList':
-                return <ListEditForm/>
+                return <ListEditForm onClose={handleCancelForm}/>
             case 'editTask':
-                return <TaskEditForm/>
+                return <TaskEditForm onClose={handleCancelForm}/>
             default:
                 return <ListForm onSubmit={handleAddList}/>
         }

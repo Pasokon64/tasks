@@ -2,7 +2,11 @@ import React from 'react';
 
 import './style.css';
 
-function TaskEditForm () {
+function TaskEditForm ({ onClose }) {
+
+    function cancel() {
+        onClose();
+    }
 
     return (
         <form className="form">
@@ -18,7 +22,7 @@ function TaskEditForm () {
                     <button className="primary-button">save</button>
                     <button className="danger-button">delete</button>
                 </div>
-                <button className="secondary-button">cancel</button>
+                <button className="secondary-button" onClick={cancel}>cancel</button>
             </div>
         </form>
     );

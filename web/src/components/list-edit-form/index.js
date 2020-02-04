@@ -2,7 +2,11 @@ import React from 'react';
 
 import './style.css';
 
-function ListEditForm() {
+function ListEditForm({ onClose }) {
+
+    function cancel() {
+        onClose();
+    }
 
     return (
         <form className="form">
@@ -14,7 +18,7 @@ function ListEditForm() {
                     <button className="primary-button">save</button>
                     <button className="danger-button">delete</button>
                 </div>
-                <button className="secondary-button">cancel</button>
+                <button className="secondary-button" onClick={cancel}>cancel</button>
             </div>
         </form>
     );
