@@ -13,6 +13,7 @@ import './style.css';
 
 function Application () {
     const [lists, setLists] = useState([]);
+    const [formState, setFormState] = useState({ form: 'newList' });
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -53,13 +54,24 @@ function Application () {
         setLists(filteredList);
     }
 
+    function Form() {
+        switch (formState.form) {
+            case 'newList':
+                return <ListForm onSubmit={handleAddList}/>
+            case 'editList':
+                return <ListEditForm/>
+            case 'editTask':
+                return <TaskEditForm/>
+            default:
+                return <ListForm onSubmit={handleAddList}/>
+        }
+    }
+
     return (
         <div id="App">
         <aside>
             <Profile/>
-            <ListForm onSubmit={handleAddList}/>
-            <ListEditForm/>
-            <TaskEditForm/>
+            <Form/>
         </aside>
         <main>
             {
