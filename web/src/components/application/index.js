@@ -13,7 +13,7 @@ import './style.css';
 
 function Application () {
     const [lists, setLists] = useState([]);
-    const [formState, setFormState] = useState({ form: 'editList' });
+    const [editForm, setEditForm] = useState({});
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -54,17 +54,33 @@ function Application () {
         setLists(filteredList);
     }
 
+    function handleEditList(list) {
+        const listsCopy = [...lists];
+        const index = listsCopy.findIndex(item => item._id === list._id);
+
+        listsCopy[index] = list;
+
+        setLists(listsCopy);
+        setEditForm({});
+    }
+
+    function handleChangeFormList(list) {
+        setEditForm({ type: 'list', obj: list });
+    }
+
     function handleCancelForm() {
-        setFormState({ form: <ListForm/> });
+        setEditForm({});
     }
 
     function Form() {
-        switch (formState.form) {
-            case 'newList':
-                return <ListForm onSubmit={handleAddList}/>
-            case 'editList':
-                return <ListEditForm onClose={handleCancelForm}/>
-            case 'editTask':
+        switch (editForm.type) {
+            case 'list':
+                return <ListEditForm 
+                            onClose={handleCancelForm} 
+                            onDelete={handleDeleteList}
+                            onEdit={handleEditList}
+                            list={editForm.obj}/>
+            case 'task':
                 return <TaskEditForm onClose={handleCancelForm}/>
             default:
                 return <ListForm onSubmit={handleAddList}/>
@@ -80,7 +96,7 @@ function Application () {
         <main>
             {
                 lists.map(list => (
-                    <List key={list._id} list={list} onDelete={handleDeleteList}/>
+                    <List key={list._id} list={list} onEdit={handleChangeFormList}/>
                 ))
             }
         </main>

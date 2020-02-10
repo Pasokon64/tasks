@@ -1,21 +1,41 @@
 import React, { useState } from 'react';
+import api from '../../services/api';
 
 import './style.css';
 
-function ListEditForm({ onClose }) {
+function ListEditForm({ onClose, onEdit, onDelete, list }) {
 
-    const [title, setTitle] = useState('');
+    const [title, setTitle] = useState(list.title);
 
     function cancel() {
         onClose();
     }
 
     async function taskEdit() {
-        console.log(title);
+        const token = localStorage.getItem('token');
+
+        const response = await api.put(`/list/update/${list._id}`, {
+            title: title
+        }, 
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        onEdit(response.data);
     }
 
     async function taskDelete() {
-        return;
+        const token = localStorage.getItem('token');
+
+        const response = await api.delete(`/list/delete/${list._id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        onDelete(response.data);
     }
 
     return (
@@ -26,7 +46,7 @@ function ListEditForm({ onClose }) {
             <div className="button-group">
                 <div className="group-1">
                     <button type="button" className="primary-button" onClick={taskEdit}>save</button>
-                    <button type="button" className="danger-button">delete</button>
+                    <button type="button" className="danger-button" onClick={taskDelete}>delete</button>
                 </div>
                 <button type="button" className="secondary-button" onClick={cancel}>cancel</button>
             </div>
