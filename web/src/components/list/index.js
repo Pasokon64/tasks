@@ -8,7 +8,7 @@ import api from '../../services/api';
 
 import './style.css';
 
-function List({ list, onDelete, onEdit }) {
+function List({ list, onEdit, onEditTask }) {
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
@@ -49,6 +49,10 @@ function List({ list, onDelete, onEdit }) {
         onEdit(list);
     }
 
+    function handleEditTask(task) {
+        onEditTask(task);
+    }
+
     return (
         <div className="list">
             <div className="title-bar">
@@ -57,7 +61,7 @@ function List({ list, onDelete, onEdit }) {
             </div>
             {
                 tasks.map(task => (
-                    <Task key={task._id} title={task.title}/>
+                    <Task key={task._id} task={task} onEdit={handleEditTask}/>
                 ))
             }
             <ListInput onSubmit={handleAddTask}/>

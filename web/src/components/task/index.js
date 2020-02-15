@@ -2,10 +2,19 @@ import React from 'react';
 
 import './style.css';
 
-function Task({ title }) {
+function Task({ task, onEdit }) {
+
+    function handleEditTask(e) {
+        if (e.target.className != "checkbox") {
+            onEdit(task);
+        }
+    }
 
     return (
-        <div key="" className="task"><span>{title}</span><input type="checkbox"/></div>
+        <div key="" className="task" onClick={handleEditTask}>
+            <span>{task.title}</span>
+            <input className="checkbox" type="checkbox"/>
+        </div>
     );
 }
 

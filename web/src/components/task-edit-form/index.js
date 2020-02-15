@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './style.css';
 
-function TaskEditForm ({ onClose }) {
+function TaskEditForm ({ task, onClose }) {
+
+    const [title, setTitle] = useState(task.title);
 
     function cancel() {
         onClose();
@@ -12,7 +14,7 @@ function TaskEditForm ({ onClose }) {
         <form className="form">
             <h2>Task</h2>
             <label>Name</label><br></br>
-            <input type="text"/>
+            <input type="text" value={title} onChange={e => setTitle(e.target.value)}/>
             <div className="checkbox-container">
                 <label>completed</label>
                 <input type="checkbox"/>

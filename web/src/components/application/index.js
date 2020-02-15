@@ -52,6 +52,7 @@ function Application () {
         const filteredList = listsCopy.filter(item => item._id !== list._id);
 
         setLists(filteredList);
+        setEditForm({});
     }
 
     function handleEditList(list) {
@@ -61,11 +62,15 @@ function Application () {
         listsCopy[index] = list;
 
         setLists(listsCopy);
-        setEditForm({});
+        handleChangeFormList(list);
     }
 
     function handleChangeFormList(list) {
         setEditForm({ type: 'list', obj: list });
+    }
+
+    function handleChangeFormTask(task) {
+        setEditForm({ type: 'task', obj: task });
     }
 
     function handleCancelForm() {
@@ -81,7 +86,9 @@ function Application () {
                             onEdit={handleEditList}
                             list={editForm.obj}/>
             case 'task':
-                return <TaskEditForm onClose={handleCancelForm}/>
+                return <TaskEditForm 
+                            onClose={handleCancelForm}
+                            task={editForm.obj}/>
             default:
                 return <ListForm onSubmit={handleAddList}/>
         }
@@ -96,7 +103,7 @@ function Application () {
         <main>
             {
                 lists.map(list => (
-                    <List key={list._id} list={list} onEdit={handleChangeFormList}/>
+                    <List key={list._id} list={list} onEdit={handleChangeFormList} onEditTask={handleChangeFormTask}/>
                 ))
             }
         </main>

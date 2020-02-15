@@ -5,6 +5,10 @@
     border-bottom: #ddd solid 2px;
 }
 
+.task:hover {
+    cursor: pointer;
+}
+
 .task span {
     width: 93%;
     display: inline-block;
