@@ -69,6 +69,10 @@ function Application () {
         setEditForm({ type: 'list', obj: list });
     }
 
+    function handleDeleteTask(task) {
+        setEditForm({});
+    }
+
     function handleChangeFormTask(task) {
         setEditForm({ type: 'task', obj: task });
     }
@@ -88,6 +92,7 @@ function Application () {
             case 'task':
                 return <TaskEditForm 
                             onClose={handleCancelForm}
+                            onDelete={handleDeleteTask}
                             task={editForm.obj}/>
             default:
                 return <ListForm onSubmit={handleAddList}/>

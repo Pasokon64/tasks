@@ -11,7 +11,7 @@ function ListEditForm({ onClose, onEdit, onDelete, list }) {
         onClose();
     }
 
-    async function taskEdit() {
+    async function listEdit() {
         const token = localStorage.getItem('token');
 
         const response = await api.put(`/list/update/${list._id}`, {
@@ -26,7 +26,7 @@ function ListEditForm({ onClose, onEdit, onDelete, list }) {
         onEdit(response.data);
     }
 
-    async function taskDelete() {
+    async function listDelete() {
         const token = localStorage.getItem('token');
 
         const response = await api.delete(`/list/delete/${list._id}`, {
@@ -45,8 +45,8 @@ function ListEditForm({ onClose, onEdit, onDelete, list }) {
             <input type="text" onChange={e => setTitle(e.target.value)} value={title}/>
             <div className="button-group">
                 <div className="group-1">
-                    <button type="button" className="primary-button" onClick={taskEdit}>save</button>
-                    <button type="button" className="danger-button" onClick={taskDelete}>delete</button>
+                    <button type="button" className="primary-button" onClick={listEdit}>save</button>
+                    <button type="button" className="danger-button" onClick={listDelete}>delete</button>
                 </div>
                 <button type="button" className="secondary-button" onClick={cancel}>cancel</button>
             </div>
