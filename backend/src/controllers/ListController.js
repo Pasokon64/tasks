@@ -13,6 +13,17 @@ module.exports = {
         }
     },
 
+    async show(req, res) {
+        //TODO: check if user is owner of list
+        try {
+            const list = await List.findById(req.params.id);
+            res.send(list);
+        }
+        catch (err) {
+            return res.status(400).send({ error: 'Error getting list' });
+        }
+    },
+
     async create(req, res) {
         const { title } = req.body;
 

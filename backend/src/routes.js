@@ -19,6 +19,7 @@ routes.put('/api/task/update/:id', auth, taskController.update);
 routes.delete('/api/task/delete/:id', auth, taskController.delete);
 
 routes.get('/api/list', auth, listController.index);
+routes.get('/api/list/:id', auth, listController.show);
 routes.post('/api/list/create', auth, listController.create);
 routes.put('/api/list/update/:id', auth, listController.update);
 routes.delete('/api/list/delete/:id', auth, listController.delete);
