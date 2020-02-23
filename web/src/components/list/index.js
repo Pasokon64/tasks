@@ -26,7 +26,7 @@ function List({ list, onEdit, onEditTask }) {
         }
 
         getTasks();
-    }, []);
+    }, [window.update]);
 
     async function handleAddTask(taskInput) {
         const token = localStorage.getItem('token');

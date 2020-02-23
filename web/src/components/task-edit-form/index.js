@@ -14,13 +14,19 @@ function TaskEditForm ({ task, onDelete, onClose }) {
     async function taskDelete() {
         const token = localStorage.getItem('token');
 
-        const response = await api.delete(`/task/delete/${task._id}`, {
+        const deletedTask = await api.delete(`/task/delete/${task._id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         });
 
-        onDelete(response.data);
+        const list = await api.get(`/list/${deletedTask.data.list}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        onDelete(list.data);
     }
 
     return (

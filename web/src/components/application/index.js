@@ -28,6 +28,8 @@ function Application () {
             setLists(response.data);
         }
 
+        window.update = true;
+
         getLists();
     }, []);
 
@@ -69,7 +71,9 @@ function Application () {
         setEditForm({ type: 'list', obj: list });
     }
 
-    function handleDeleteTask(task) {
+    function handleDeleteTask() {
+        // TODO: update only the deleted task
+        window.update = !window.update;
         setEditForm({});
     }
 
