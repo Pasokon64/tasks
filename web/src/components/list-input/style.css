@@ -9,7 +9,7 @@
 .button-div {
     display: flex;
     margin-top: 4px;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .task-form button {

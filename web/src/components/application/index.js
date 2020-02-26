@@ -78,6 +78,7 @@ function Application () {
     }
 
     function handleEditTask(task) {
+        // TODO: update only the deleted task
         window.update = !window.update;
         setEditForm({ type: 'task', obj: task });
     }

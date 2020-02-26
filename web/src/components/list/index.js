@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MdDelete, MdEdit } from 'react-icons/md';
+import { MdEdit } from 'react-icons/md';
 import ListInput from '../list-input';
 import Task from '../task';
 
