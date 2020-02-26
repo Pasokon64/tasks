@@ -77,6 +77,11 @@ function Application () {
         setEditForm({});
     }
 
+    function handleEditTask(task) {
+        window.update = !window.update;
+        setEditForm({ type: 'task', obj: task });
+    }
+
     function handleChangeFormTask(task) {
         setEditForm({ type: 'task', obj: task });
     }
@@ -96,6 +101,7 @@ function Application () {
             case 'task':
                 return <TaskEditForm 
                             onClose={handleCancelForm}
+                            onEdit={handleEditTask}
                             onDelete={handleDeleteTask}
                             task={editForm.obj}/>
             default:
